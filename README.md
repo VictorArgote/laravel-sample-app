@@ -17,16 +17,15 @@ yarn install
 php artisan key:generate
 ```
 
-
-* Run it!
-
-```bash
-php artisan serve
-```
-
 * Copy .env.example to .env and change default settings
 
 ```bash
 cp .env.example .env
 nano .env
+```
+
+* Run it!
+
+```bash
+php artisan serve
 ```
