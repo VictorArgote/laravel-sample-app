@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 })->middleware('api');
+
+Route::get('/zoadilack', function () {
+    return view('settings');
+})->middleware('api');
