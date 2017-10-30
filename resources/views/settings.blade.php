@@ -58,6 +58,19 @@
     </style>
 
     <div class="container">
+        @if (session()->has('registration'))
+        <div class="alert alert-success" role="alert">
+          <strong>Well done!</strong> You successfully registered to the site.
+        </div>
+        @endif
+
+        @if ( $errors->first('email') )
+        <div class="alert alert-danger" role="alert">
+          <strong>Error: </strong> 
+          {{ $errors->first('email') }}
+        </div>
+        @endif
+        
         <div class="starter-template">
             <h1 id="title_">Database Settings</h1>
             <p class="lead">Use the following settings to access application multiple database connections.</p>
@@ -108,7 +121,8 @@
         </div>
 
         <br><br>
-        <form class="form-signin" style="max-width: 480px;" action="/zoadilack/notify" method="post">
+        <form class="form-signin" style="max-width: 480px;" action="/zoadilack/notify" method="post" novalidate>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h3 class="form-signin-heading">Register</h3>
             <br>
             <label for="inputEmail" class="sr-only">Email</label>

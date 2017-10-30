@@ -4,7 +4,7 @@ This a sample app uses Laravel 5.5 and Bootstrap 4.0.0-beta for the primary appl
 
 ## Installation
 
-* Copy .env.example to .env and change default settings for: DB_*, DEFAULT_EMAIL, and MAIL_* environment variables.
+* Copy .env.example to .env and change default settings for: DB_\*, DEFAULT_EMAIL, and MAIL_\* environment variables.
 
 ```bash
 cp .env.example .env
