@@ -58,6 +58,18 @@
     </style>
 
     <div class="container">
+        @if (!empty($registration))
+        <div class="alert alert-success" role="alert">
+          <strong>Well done!</strong> You successfully registered to the site.
+        </div>
+        @endif
+
+        @if (!empty($validator))
+        <div class="alert alert-danger" role="alert">
+          <strong>Error: </strong> {{$validator}}
+        </div>
+        @endif
+        
         <div class="starter-template">
             <h1 id="title_">Database Settings</h1>
             <p class="lead">Use the following settings to access application multiple database connections.</p>

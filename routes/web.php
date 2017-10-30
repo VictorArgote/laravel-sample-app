@@ -18,3 +18,19 @@ Route::get('/', function () {
 Route::get('/zoadilack', function () {
     return view('settings');
 })->middleware('api');
+
+Route::post('/zoadilack/notify', function () {
+
+	$data= Input::all();
+    $rules = [
+        'email' => 'required|email',
+    ];
+
+    $validator = Validator::make($data, $rules);
+    
+    if ($validator->fails()) {
+        return Redirect::to('/zoadilack')->withErrors($validator);
+    }
+
+    return redirect()->route('/zoadilack')->with(['registration' => true]);
+})->middleware('api');
