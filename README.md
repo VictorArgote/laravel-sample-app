@@ -4,11 +4,10 @@ This a sample app uses Laravel 5.5 and Bootstrap 4.0.0-beta for the primary appl
 
 ## Installation
 
-* Install Composer and Yarn dependencies
+* Copy .env.example to .env and change default settings for DB_* and DEFAULT_EMAIL environment variables.
 
 ```bash
-composer install
-yarn install
+cp .env.example .env
 ```
 
 * Generate laravel key
@@ -17,11 +16,11 @@ yarn install
 php artisan key:generate
 ```
 
-* Copy .env.example to .env and change default settings
+* Install Composer and Yarn dependencies
 
 ```bash
-cp .env.example .env
-nano .env
+composer install
+yarn install
 ```
 
 * Run it!
