@@ -11,6 +11,8 @@
 |
 */
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +34,15 @@ Route::post('/zoadilack/notify', function (Request $request) {
     if ($validator->fails()) {
         return Redirect::to('/zoadilack')->withErrors($validator);
     }
+
+    $emailTo = $request->input('email');
+    Mail::raw(
+        'Thanks for signing up!',
+        function($message) use ($emailTo) {
+            $message->from($emailTo)
+            	->to(env('DEFAULT_EMAIL'))
+                ->subject('Registration was successful.');
+        });
 
     return Redirect::to('/zoadilack')->with(['registration' => true]);
 });
